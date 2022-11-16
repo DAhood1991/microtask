@@ -8,33 +8,31 @@ type MoneyType = {
 }
 export type MoneyPropsType = {
     money: Array<MoneyType>
-    CallBack:(name:filterType)=>void
+    CallBack: (name: filterType) => void
 }
 
 export const Filter = (props: MoneyPropsType) => {
     const filterHandlerAll = () => {
-props.CallBack("all")
+        props.CallBack("all")
     }
     const filterHandlerRubl = () => {
         props.CallBack("RUBLS")
     }
     const filterHandlerDollar = () => {
-props.CallBack('Dollars')
+        props.CallBack('Dollars')
     }
     return <ol>
-        {props.money.map((m,index)=>{
-             return <li key={index}>
-                    <span>{m.banknots}</span>
-                    <span>{m.value}</span>
-                    <span>{m.number}</span>
-                </li>
+        {props.money.map((m, index) => {
+            return <li key={index}>
+                <span>{m.banknots}</span>
+                <span>{m.value}</span>
+                <span>{m.number}</span>
+            </li>
         })
         }
         <button onClick={filterHandlerAll}>filterHandlerAll</button>
         <button onClick={filterHandlerRubl}>FilterRubl</button>
         <button onClick={filterHandlerDollar}>filterHandlerDollar</button>
-            </ol>
+    </ol>
 
-
-
-        }
+}

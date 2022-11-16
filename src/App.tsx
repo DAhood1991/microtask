@@ -12,7 +12,7 @@ export type filterType = 'RUBLS' | 'Dollars' | 'all'
 
 function App() {
     const Button11 = (sub: string) => {
-       alert(sub)
+        alert(sub)
     }
     const Button22 = (sub2: string) => {
         console.log(sub2)
@@ -37,28 +37,29 @@ function App() {
     // ]
 
     const [money, setMoney] = useState([
-        { banknots: 'Dollars', value: 100, number: ' a1234567890' },
-        { banknots: 'Dollars', value: 50, number: ' z1234567890' },
-        { banknots: 'RUBLS', value: 100, number: ' w1234567890' },
-        { banknots: 'Dollars', value: 100, number: ' e1234567890' },
-        { banknots: 'Dollars', value: 50, number: ' c1234567890' },
-        { banknots: 'RUBLS', value: 100, number: ' r1234567890' },
-        { banknots: 'Dollars', value: 50, number: ' x1234567890' },
-        { banknots: 'RUBLS', value: 50, number: ' v1234567890' },
+        {banknots: 'Dollars', value: 100, number: ' a1234567890'},
+        {banknots: 'Dollars', value: 50, number: ' z1234567890'},
+        {banknots: 'RUBLS', value: 100, number: ' w1234567890'},
+        {banknots: 'Dollars', value: 100, number: ' e1234567890'},
+        {banknots: 'Dollars', value: 50, number: ' c1234567890'},
+        {banknots: 'RUBLS', value: 100, number: ' r1234567890'},
+        {banknots: 'Dollars', value: 50, number: ' x1234567890'},
+        {banknots: 'RUBLS', value: 50, number: ' v1234567890'},
     ])
 
-const [filter,setFilter]=useState<filterType>('all')
-    let currentMoney =money
-    if(filter === 'RUBLS' ){
-        currentMoney=money.filter((f)=>f.banknots === 'RUBLS')}
-        if(filter === 'Dollars' ){
-            currentMoney=money.filter((f)=>f.banknots === 'Dollars')
+    const [filter, setFilter] = useState<filterType>('all')
+    let currentMoney = money
+    if (filter === 'RUBLS') {
+        currentMoney = money.filter((f) => f.banknots === 'RUBLS')
+    }
+    if (filter === 'Dollars') {
+        currentMoney = money.filter((f) => f.banknots === 'Dollars')
     }
 
-        const CallBack = (name:filterType) => {
-setFilter(name)
+    const CallBack = (name: filterType) => {
+        setFilter(name)
 
-        }
+    }
 
 //
 // const filterHandlerAll = (name:string) => {
@@ -72,15 +73,15 @@ setFilter(name)
 // }
     return (
         <div>
-        {/*    <NewComponents students={students}/>*/}
-        {/*                <NewComponents2 students={topCars}/>*/}
-        {/*    <Header title={"NEw page"}/>*/}
-        {/*    <Body title={'Plane'}/>*/}
-        {/*    <Footer title={'My plane'}/>*/}
-        {/*    <Subscraiber name={"you chenel1"} callBack={() => Button11("vawdwa")}/>*/}
-        {/*    <Subscraiber name={"you chenel2"} callBack={() => Button22('VIA')}/>*/}
-        {/*<HOOK/>*/}
-<Filter money={currentMoney} CallBack={CallBack}  />
+            {/*    <NewComponents students={students}/>*/}
+            {/*                <NewComponents2 students={topCars}/>*/}
+            {/*    <Header title={"NEw page"}/>*/}
+            {/*    <Body title={'Plane'}/>*/}
+            {/*    <Footer title={'My plane'}/>*/}
+            {/*    <Subscraiber name={"you chenel1"} callBack={() => Button11("vawdwa")}/>*/}
+            {/*    <Subscraiber name={"you chenel2"} callBack={() => Button22('VIA')}/>*/}
+            {/*<HOOK/>*/}
+            <Filter money={currentMoney} CallBack={CallBack}/>
         </div>
 
     );
