@@ -7,6 +7,9 @@ import {NewComponents2} from "./Components/NewComponents2";
 import {Subscraiber} from "./Components/Buttons";
 import {HOOK} from "./Components/HOOK";
 import {Filter} from "./Components/Filter";
+import FullInput from "./Components/FullInput";
+import Button from "./Components/Button";
+import Input from "./Components/Input";
 
 export type filterType = 'RUBLS' | 'Dollars' | 'all'
 
@@ -16,6 +19,27 @@ function App() {
     }
     const Button22 = (sub2: string) => {
         console.log(sub2)
+    }
+
+
+    const [message, setMessage] = useState([
+            {message: 'message1'},
+            {message: 'message2'},
+            {message: 'message3'},
+            {message: 'message4'},
+            {message: 'message5'}
+        ]
+    )
+
+    const [title, setTitle] = useState('')
+    console.log(title)
+    const onClickMessage = (title:string) => {
+        let newMessage = {message:title}
+      setMessage([newMessage,...message])
+    }
+    const onClickButton = () => {
+        onClickMessage(title)
+        setTitle('')
     }
     // const students = [
     //     {id: 1, name: "James", age: 8},
@@ -73,6 +97,7 @@ function App() {
 // }
     return (
         <div>
+
             {/*    <NewComponents students={students}/>*/}
             {/*                <NewComponents2 students={topCars}/>*/}
             {/*    <Header title={"NEw page"}/>*/}
@@ -81,7 +106,18 @@ function App() {
             {/*    <Subscraiber name={"you chenel1"} callBack={() => Button11("vawdwa")}/>*/}
             {/*    <Subscraiber name={"you chenel2"} callBack={() => Button22('VIA')}/>*/}
             {/*<HOOK/>*/}
+
             <Filter money={currentMoney} CallBack={CallBack}/>
+            {/*<FullInput message={message} onClick={onClickMessage}/>*/}
+
+            <Button onClick={onClickButton} name={"+"}/>
+            <Input title={title} setTitle={setTitle}/>
+            {message.map((el, index) => {
+                return (
+                    <div key={index}>{el.message}</div>
+                )
+            })}
+
         </div>
 
     );
